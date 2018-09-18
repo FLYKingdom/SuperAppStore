@@ -1,0 +1,79 @@
+//
+//  PrefixHeader.pch
+//  SuperAppStore
+//
+//  Created by mac on 2018/3/16.
+//  Copyright © 2018年 FlyYardAppStore. All rights reserved.
+//
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#ifdef __OBJC__
+
+#import "UILabel+Extension.h"
+#import <ChameleonFramework/Chameleon.h>
+
+//RGBA设置颜色
+#define RGBA(r,g,b,a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
+#define DefaultMainColor   [UIColor colorWithRed:1.0 green:153.0/255 blue:0.0/255 alpha:1.000]
+#define DefaultBGColor RGBA(240, 246, 247, 1.0)
+#define LightMainColor     [UIColor colorWithRed:1.0 green:210.0/255 blue:143.0/255 alpha:1.000]
+#define DarkerMainColor     [UIColor colorWithRed:224.0/255.0f green:135.0/255.0f blue:4.0/255.0f alpha:1]
+#define NavigationTintColor [UIColor whiteColor]
+
+#define DefaultGrayColor    [UIColor colorWithRed:199.0/255 green:205.0/255 blue:209.0/255 alpha:1.0f]
+#define WarmColor    [UIColor colorWithRed:243.0/255 green:241.0/255 blue:241.0/255 alpha:1.0f]
+#define SeperatorColor   [UIColor colorWithWhite:0.9f alpha:1.0f]
+#define DefaultFontColor    [UIColor colorWithWhite:0.42 alpha:1.0f]
+#define LightFontColor      [UIColor colorWithWhite:0.57 alpha:1.0f]
+
+#define   FontName     @"STHeitiSC-Light"
+#define   BoldFontName @"STHeitiSC-Medium"
+
+//*******************************
+#define MAS_SHORTHAND
+// 非oc对象包装成oc对象
+#define MAS_SHORTHAND_GLOBALS
+//*******************************
+
+#define TitleFontSize 20
+#define SubTitleFontSize 17
+#define DefaultMainFontSize 15
+#define PrompFontSize 13
+#define PaddingBorder 12
+
+#define IPHONE_6_OR_LARGER (kDeviceWidth>320.0)
+#define IsIPhoneX (([[UIScreen mainScreen] bounds].size.height-812)?NO:YES)
+#define kDeviceWidth [UIScreen mainScreen].bounds.size.width
+#define kDeviceFullHeight ([[UIScreen mainScreen] bounds].size.height)
+#define KDeviceHeight (IsIPhoneX ? (kDeviceFullHeight-58):kDeviceFullHeight)
+#define MaskLayerBackground [UIColor colorWithWhite:0.7 alpha:0.3]
+
+#define LOAD_DATA_FAIL_LIST @"网络不给力，请检查您的网络后，下拉刷新"
+#define LOAD_DATA_FAIL_DETAIL @"网络不给力，请检查后重试"
+
+#define IOS10_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >= 10.0)
+#define IOS11_OR_LATER @available(iOS 11.0, *)
+
+#define SecretMode YES//YES secret mode NO open mode
+
+#if DEBUG
+
+#define BaseURLString   @"http://test.api.ifly.com/v3/"
+#define BaseCenterURLString @"http://test.zscenter.ifly.com/index.php/Home/"
+#define BaseCartURLString @"http://test.cart.ifly.com/index.php/Home/"
+#define HOMEURLString   @"http://test.ifly.com/"
+#define ImageURLString @"http://test.image.ifly.com/"
+
+#else
+
+#define   BaseURLString   @"https://api.ifly.com/v3/"
+#define BaseCenterURLString @"https://center.ifly.com/index.php/Home/"
+#define BaseCartURLString @"https://cart.ifly.com/index.php/Home/"
+#define   HOMEURLString   @"https://www.ifly.com/"
+#define ImageURLString @"https://image.ifly.com/"
+
+#endif
+
+#endif /* PrefixHeader_pch */
