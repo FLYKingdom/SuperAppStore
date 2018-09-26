@@ -44,7 +44,10 @@
 #define PaddingBorder 12
 
 #define IPHONE_6_OR_LARGER (kDeviceWidth>320.0)
-#define IsIPhoneX (([[UIScreen mainScreen] bounds].size.height-812)?NO:YES)
+
+#define StatusBarHeight CGRectGetHeight([[UIApplication sharedApplication] statusBarFrame])
+#define IsIPhoneX ((44 - StatusBarHeight >= 0.00001)?NO:YES)
+
 #define kDeviceWidth [UIScreen mainScreen].bounds.size.width
 #define kDeviceFullHeight ([[UIScreen mainScreen] bounds].size.height)
 #define KDeviceHeight (IsIPhoneX ? (kDeviceFullHeight-58):kDeviceFullHeight)
